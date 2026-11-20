@@ -1,0 +1,45 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: hsla(0, 0%, 100%, 0.972);
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header, nav, aside, article, footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+header{
+    height: 100px;
+    background-color: hsla(0, 68%, 28%, 0.972);
+}
+
+footer{
+    height: 100px;
+    background-color: hsla(104, 68%, 28%, 0.972);
+}
+
+main{
+    border: 2px solid rgb(164, 27, 27);
+    display : grid;
+    grid-template-columns: 180px 1fr;
+    background-color: hsla(0, 0%, 100%, 0.972);
+    gap: 1em;
+}
+
+nav{
+    height: 500px;
+} 
+
+.principal{
+    background-color: hsla(76, 93%, 47%, 0.52);
+}
