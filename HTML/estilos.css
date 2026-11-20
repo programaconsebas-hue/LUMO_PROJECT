@@ -1,0 +1,166 @@
+/* RESETEO Y VARIABLES DE DISEÑO */
+:root {
+    --bg-pantalla: #7ddce9;
+    --bg-caja: #1fb1ca75;
+    --borde-caja: #020202;
+    --texto-etiqueta: #0b0e13;
+    --acento-borde: #2d93ce;
+    --gap-general: 16px;
+    --radio: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-pantalla);
+    color: var(--texto-etiqueta);
+    padding: 16px;
+}
+
+/* CONTENEDOR MAESTRO (Ocupa toda la pantalla ordenadamente) */
+.layout-contenedor {
+    max-width: 1200px;
+    min-height: calc(100vh - 32px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-general);
+}
+
+/* ESTILO VISUAL DE WIREFRAME PARA CADA BLOQUE */
+.caja-maqueta {
+    background-color: var(--bg-caja);
+    border: 2px dashed var(--borde-caja);
+    border-radius: var(--radio);
+    padding: 16px;
+    position: relative;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.caja-maqueta:hover {
+    border-color: var(--acento-borde);
+    box-shadow: 0 4px 12px rgba(13, 105, 141, 0.08);
+}
+
+.etiqueta {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    background-color: #76bcbe;
+    color: #23909e;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* 1. HEADER */
+header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+/* 2. CUERPO CENTRAL (Divide Nav y Main) */
+.layout-cuerpo {
+    display: flex;
+    gap: var(--gap-general);
+    flex: 1; /* Empuja el footer hacia el fondo de la pantalla */
+}
+
+/* Columna Izquierda: Nav */
+.columna-nav {
+    width: 240px;
+    flex-shrink: 0;
+}
+
+nav {
+    height: 320px; /* Mantiene la proporción de tu diagrama */
+    background-color: #2a7ba0;
+}
+
+/* Columna Derecha: Main */
+.columna-contenido {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-general);
+}
+
+.seccion {
+    background-color: #1f9ca0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Interior Sección 1 */
+.grid-sec1 {
+    display: flex;
+    gap: var(--gap-general);
+    min-height: 260px;
+}
+
+article {
+    flex: 2; /* 66% del ancho */
+    background-color: #28677a;
+}
+
+.stack-asides {
+    flex: 1; /* 33% del ancho */
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-general);
+}
+
+.stack-asides aside {
+    flex: 1;
+}
+
+/* Interior Sección 2 */
+.grid-sec2 {
+    display: flex;
+    gap: var(--gap-general);
+    min-height: 140px;
+}
+
+.espacio-libre {
+    flex: 2; /* Mismo ancho que el article de arriba */
+}
+
+.grid-sec2 aside {
+    flex: 1; /* Alineado exactamente debajo de los aside de arriba */
+}
+
+/* 3. FOOTER */
+footer {
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+/* RESPONSIVE (Para pantallas de celular o tablet) */
+@media (max-width: 768px) {
+    .layout-cuerpo,
+    .grid-sec1,
+    .grid-sec2 {
+        flex-direction: column;
+    }
+
+    .columna-nav {
+        width: 100%;
+    }
+
+    nav {
+        height: auto;
+        min-height: 80px;
+    }
+
+    .espacio-libre {
+        display: none; /* Oculta el hueco vacío en celulares */
+    }
+}
