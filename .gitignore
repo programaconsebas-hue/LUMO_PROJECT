@@ -1,0 +1,11 @@
+# Respaldos y archivos de bloqueo de Visual Paradigm
+*.bak*
+*.lck
+.vpp.lck
+
+# Archivos temporales de Microsoft Office (Excel / Word)
+~$*
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
