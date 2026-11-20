@@ -1,26 +1,136 @@
+<!-- Indica al navegador que este documento usa la versión moderna HTML5 -->
 <!DOCTYPE html>
+
+<!-- Etiqueta raíz que envuelve toda la página; lang="es" indica que el idioma es español -->
 <html lang="es">
+
+<!-- Sección <head>: contiene la configuración invisible de la página (título, acentos, estilos) -->
 <head>
+    <!-- Permite mostrar tildes, la letra ñ y caracteres especiales sin errores -->
     <meta charset="UTF-8">
+    <!-- Hace que la página se adapte correctamente al ancho de celulares y tabletas -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- Texto que aparece en la pestaña superior del navegador -->
+    <title>LUMO | Encuentra y reserva parqueadero</title>
+    <!-- Conecta este archivo HTML con nuestra hoja de estilos externa 'estilo.css' -->
     <link rel="stylesheet" href="estilo.css">
+<!-- Cierre de la sección de configuración -->
 </head>
+
+<!-- Sección <body>: contiene absolutamente todo lo que el usuario ve en pantalla -->
 <body>
-    <header>header</header>
+
+    <!-- 1. BARRA DE NAVEGACIÓN SUPERIOR -->
+    <!-- <header> es la caja semántica para el encabezado; class="navbar" le da un nombre para CSS -->
+    <header class="navbar">
+        <!-- <div> es una caja genérica; aquí guarda el logotipo textual de la marca -->
+        <div class="logo">LUMO</div>
+        <!-- <nav> agrupa los enlaces principales de navegación del sitio -->
+        <nav class="menu">
+            <!-- <a> crea un enlace clicable; href="#buscar" lleva a la sección con id="buscar" -->
+            <a href="#buscar">Buscar cupo</a>
+            <!-- Enlace pensado para el flujo de propietarios que publican espacios -->
+            <a href="#propietarios">Publicar mi espacio</a>
+            <!-- Enlace con clase 'btn-secundario' para darle apariencia de botón con borde en CSS -->
+            <a href="#login" class="btn-secundario">Iniciar sesión</a>
+        <!-- Cierre de la barra de navegación -->
+        </nav>
+    <!-- Cierre del encabezado -->
+    </header>
+
+    <!-- 2. CONTENIDO PRINCIPAL -->
+    <!-- <main> envuelve el contenido único y más importante de toda la pantalla -->
     <main>
-        <nav id="n1">nav</nav>
-        <div class="principal">
-            <section>section 
-                <article>article</article>
-                <aside>aside</aside>
-                <aside>aside</aside>
-            </section>
-        <section> section
-            <aside>aside</aside>
+        <!-- <section> divide la página en bloques temáticos; id="buscar" sirve como ancla para el menú -->
+        <section id="buscar" class="hero">
+            <!-- <h1> es el título principal (solo debe haber uno por página para buen posicionamiento) -->
+            <h1>Parquea rápido, seguro y sin dar vueltas</h1>
+            <!-- <p> crea un párrafo de texto descriptivo debajo del título -->
+            <p>Conecta con propietarios de parqueaderos privados cerca de tu destino en tiempo real.</p>
+            
+            <!-- <form> crea un formulario interactivo para capturar datos del usuario -->
+            <form class="buscador">
+                <!-- <input> crea una caja donde el usuario escribe; placeholder es el texto guía gris -->
+                <input type="text" placeholder="¿A dónde vas? Ej. Chapinero, Bogotá">
+                <!-- <button> crea un botón clicable; type="submit" indica que envía el formulario -->
+                <button type="submit" class="btn-primario">Buscar parqueadero</button>
+            <!-- Cierre del formulario -->
+            </form>
+        <!-- Cierre de la sección principal de búsqueda -->
         </section>
-        </div>
+
+        <!-- Segunda sección temática: muestra la lista de cupos disponibles -->
+        <section class="resultados">
+            <!-- <h2> es un subtítulo de segundo nivel (subordinado al <h1>) -->
+            <h2>Parqueaderos disponibles cerca de ti</h2>
+            
+            <!-- <div> contenedor que usará CSS Grid para acomodar las tarjetas en columnas -->
+            <div class="grid-parqueaderos">
+                
+                <!-- TARJETA 1 -->
+                <!-- <article> representa un bloque de contenido independiente (una ficha de parqueadero) -->
+                <article class="tarjeta">
+                    <!-- <span> es una etiqueta en línea para resaltar textos cortos como una insignia -->
+                    <span class="etiqueta-estado">Disponible</span>
+                    <!-- <h3> es un título de tercer nivel para el nombre de este parqueadero -->
+                    <h3>Garaje Privado Calle 72</h3>
+                    <!-- Párrafo con clase 'ubicacion' para pintarlo de gris suave en CSS -->
+                    <p class="ubicacion">A 250 metros • Cubierto</p>
+                    <!-- Párrafo del precio; el <span> interno permite poner "/ hora" más pequeño -->
+                    <p class="precio">$4.500 <span>/ hora</span></p>
+                    <!-- Botón de acción principal dentro de la tarjeta -->
+                    <button class="btn-primario">Reservar ahora</button>
+                <!-- Cierre de la tarjeta 1 -->
+                </article>
+
+                <!-- TARJETA 2 -->
+                <!-- Segunda ficha independiente con las mismas clases para heredar el mismo diseño -->
+                <article class="tarjeta">
+                    <!-- Insignia verde de disponibilidad -->
+                    <span class="etiqueta-estado">Disponible</span>
+                    <!-- Nombre del segundo espacio -->
+                    <h3>Estacionamiento El Nogal</h3>
+                    <!-- Detalles de distancia y seguridad -->
+                    <p class="ubicacion">A 400 metros • Vigilancia 24/7</p>
+                    <!-- Tarifa por hora -->
+                    <p class="precio">$5.000 <span>/ hora</span></p>
+                    <!-- Botón de reserva -->
+                    <button class="btn-primario">Reservar ahora</button>
+                <!-- Cierre de la tarjeta 2 -->
+                </article>
+
+                <!-- TARJETA 3 -->
+                <!-- Tercera ficha independiente -->
+                <article class="tarjeta">
+                    <!-- Insignia verde de disponibilidad -->
+                    <span class="etiqueta-estado">Disponible</span>
+                    <!-- Nombre del tercer espacio -->
+                    <h3>Cupo Residencial Rosales</h3>
+                    <!-- Detalles de distancia y tipo de vehículo -->
+                    <p class="ubicacion">A 600 metros • Automóvil / Moto</p>
+                    <!-- Tarifa por hora -->
+                    <p class="precio">$3.800 <span>/ hora</span></p>
+                    <!-- Botón de reserva -->
+                    <button class="btn-primario">Reservar ahora</button>
+                <!-- Cierre de la tarjeta 3 -->
+                </article>
+
+            <!-- Cierre del contenedor de la cuadrícula de tarjetas -->
+            </div>
+        <!-- Cierre de la sección de resultados -->
+        </section>
+    <!-- Cierre del contenido principal -->
     </main>
-  <footer>footer</footer>
+
+    <!-- 3. PIE DE PÁGINA -->
+    <!-- <footer> es la etiqueta semántica para la parte inferior (derechos de autor, enlaces legales) -->
+    <footer class="footer">
+        <!-- Párrafo con el aviso de derechos de autor -->
+        <p>© 2026 LUMO — Movilidad Inteligente y Reservas de Parqueaderos.</p>
+    <!-- Cierre del pie de página -->
+    </footer>
+
+<!-- Cierre del cuerpo visible de la página -->
 </body>
-</html> 
+<!-- Cierre definitivo del documento HTML -->
+</html>

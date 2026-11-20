@@ -1,45 +1,315 @@
+/* ==========================================================================
+   1. RESET Y CONFIGURACIÓN GENERAL (Modelo de Caja)
+   ========================================================================== */
 
-*{
+/* El selector '*' selecciona absolutamente TODAS las etiquetas de la página */
+* {
+    /* Elimina los márgenes externos que los navegadores ponen por defecto */
     margin: 0;
+    /* Elimina los rellenos internos que los navegadores ponen por defecto */
     padding: 0;
+    /* Hace que el borde y el relleno se calculen hacia adentro, sin agrandar la caja */
+    box-sizing: border-box;
 }
 
-body{
-    background-color: hsla(0, 0%, 100%, 0.972);
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+/* Selecciona la etiqueta <body> para definir los estilos base de toda la web */
+body {
+    /* Define la familia tipográfica (si no tiene la primera, usa la siguiente) */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Pinta el fondo general de la página de un gris muy claro (#f8fafc) */
+    background-color: #f8fafc;
+    /* Pinta el color por defecto de todos los textos de un azul muy oscuro */
+    color: #0f172a;
+    /* Aumenta el espacio vertical entre líneas de texto para facilitar la lectura */
+    line-height: 1.6;
 }
 
-header, nav, aside, article, footer{
+/* ==========================================================================
+   2. BARRA SUPERIOR (Maquetación con Flexbox)
+   ========================================================================== */
+
+/* El punto '.' indica que seleccionamos cualquier etiqueta con class="navbar" */
+.navbar {
+    /* Activa Flexbox: coloca los elementos hijos (logo y menú) en una fila horizontal */
     display: flex;
+    /* Reparte el espacio sobrante: empuja el logo a la izquierda y el menú a la derecha */
+    justify-content: space-between;
+    /* Alinea el logo y los enlaces exactamente al centro en el eje vertical */
     align-items: center;
+    /* Agrega relleno interno: 16px arriba/abajo y 5% del ancho a izquierda/derecha */
+    padding: 16px 5%;
+    /* Pinta el fondo de la barra superior de azul marino oscuro */
+    background-color: #0f172a;
+    /* Pinta el texto interno de color blanco */
+    color: #ffffff;
+}
+
+/* Selecciona el contenedor del logotipo */
+.logo {
+    /* Tamaño de letra equivalente a 1.5 veces el tamaño base (aprox. 24px) */
+    font-size: 1.5rem;
+    /* Pone el texto en negrita */
+    font-weight: bold;
+    /* Separa ligeramente las letras entre sí para darle estilo de marca */
+    letter-spacing: 2px;
+    /* Pinta las letras de azul cian luminoso (identidad LUMO) */
+    color: #38bdf8;
+}
+
+/* Selecciona el contenedor <nav class="menu"> */
+.menu {
+    /* Activa Flexbox para poner los enlaces del menú en fila horizontal */
+    display: flex;
+    /* Centra verticalmente los enlaces entre sí */
+    align-items: center;
+    /* Crea una separación uniforme de 24px entre cada enlace */
+    gap: 24px;
+}
+
+/* Selecciona todas las etiquetas <a> que estén dentro de la clase .menu */
+.menu a {
+    /* Color gris claro para los enlaces */
+    color: #e2e8f0;
+    /* Quita el subrayado azul feo que traen los enlaces por defecto */
+    text-decoration: none;
+    /* Tamaño de letra ligeramente más pequeño (aprox. 15px) */
+    font-size: 0.95rem;
+}
+
+/* ':hover' aplica estos estilos SOLO cuando el usuario pasa el mouse por encima */
+.menu a:hover {
+    /* Cambia el color del enlace a azul luminoso al pasar el cursor */
+    color: #38bdf8;
+}
+
+/* ==========================================================================
+   3. SECCIÓN PRINCIPAL DE BÚSQUEDA (Hero)
+   ========================================================================== */
+
+/* Selecciona la sección superior oscura donde está el buscador */
+.hero {
+    /* Fondo azul pizarra oscuro para contrastar con el resto de la página */
+    background-color: #1e293b;
+    /* Texto principal en blanco */
+    color: #ffffff;
+    /* Centra horizontalmente todos los textos dentro de esta sección */
+    text-align: center;
+    /* Agrega 64px de relleno arriba/abajo y 20px a los lados */
+    padding: 64px 20px;
+}
+
+/* Selecciona únicamente el <h1> que está dentro de .hero */
+.hero h1 {
+    /* Tamaño grande para el titular principal (aprox. 35px) */
+    font-size: 2.2rem;
+    /* Empuja el párrafo de abajo dejando 12px de espacio externo inferior */
+    margin-bottom: 12px;
+}
+
+/* Selecciona el párrafo <p> dentro de .hero */
+.hero p {
+    /* Color gris suave para que no compita visualmente con el título blanco */
+    color: #cbd5e1;
+    /* Limita el ancho máximo a 600px para que las líneas no sean eternas */
+    max-width: 600px;
+    /* Centra el bloque horizontalmente ('auto' a los lados) y deja 28px abajo */
+    margin: 0 auto 28px auto;
+}
+
+/* Selecciona el formulario <form class="buscador"> */
+.buscador {
+    /* Pone la caja de texto y el botón uno al lado del otro */
+    display: flex;
+    /* Centra ambos elementos en el medio */
     justify-content: center;
-    border: 1px solid black;
+    /* Deja 10px de separación entre la caja de texto y el botón */
+    gap: 10px;
+    /* Limita el ancho total del buscador a 550px */
+    max-width: 550px;
+    /* Centra el formulario completo en la pantalla */
+    margin: 0 auto;
 }
 
-header{
-    height: 100px;
-    background-color: hsla(0, 68%, 28%, 0.972);
+/* Selecciona la caja de texto <input> dentro de .buscador */
+.buscador input {
+    /* Hace que la caja de texto crezca y ocupe todo el espacio libre disponible */
+    flex: 1;
+    /* Relleno interno cómodo para escribir (14px arriba/abajo, 16px lados) */
+    padding: 14px 16px;
+    /* Elimina el borde gris por defecto del navegador */
+    border: none;
+    /* Redondea las 4 esquinas de la caja de texto */
+    border-radius: 8px;
+    /* Tamaño de letra legible dentro del campo */
+    font-size: 1rem;
 }
 
-footer{
-    height: 100px;
-    background-color: hsla(104, 68%, 28%, 0.972);
+/* ==========================================================================
+   4. BOTONES REUTILIZABLES
+   ========================================================================== */
+
+/* Estilo para los botones de acción principal */
+.btn-primario {
+    /* Fondo azul intenso */
+    background-color: #0284c7;
+    /* Texto blanco */
+    color: #ffffff;
+    /* Sin borde */
+    border: none;
+    /* Relleno interno (12px arriba/abajo, 20px izquierda/derecha) */
+    padding: 12px 20px;
+    /* Esquinas redondeadas */
+    border-radius: 8px;
+    /* Texto en negrita */
+    font-weight: bold;
+    /* Cambia la flecha del mouse por una manito al pasar por encima */
+    cursor: pointer;
 }
 
-main{
-    border: 2px solid rgb(164, 27, 27);
-    display : grid;
-    grid-template-columns: 180px 1fr;
-    background-color: hsla(0, 0%, 100%, 0.972);
-    gap: 1em;
+/* Efecto visual cuando el mouse pasa sobre el botón primario */
+.btn-primario:hover {
+    /* Oscurece ligeramente el azul para dar sensación de interactividad */
+    background-color: #0369a1;
 }
 
-nav{
-    height: 500px;
-} 
+/* Estilo para botones secundarios (como "Iniciar sesión") */
+.btn-secundario {
+    /* Dibuja un borde sólido de 1px de grosor y color azul luminoso */
+    border: 1px solid #38bdf8;
+    /* Relleno interno más compacto */
+    padding: 8px 16px;
+    /* Esquinas redondeadas */
+    border-radius: 6px;
+    /* Fuerza a que el texto sea azul luminoso (!important gana sobre .menu a) */
+    color: #38bdf8 !important;
+}
 
-.principal{
-    background-color: hsla(76, 93%, 47%, 0.52);
+/* ==========================================================================
+   5. CUADRÍCULA DE TARJETAS (Maquetación con CSS Grid)
+   ========================================================================== */
+
+/* Contenedor principal de la sección de parqueaderos */
+.resultados {
+    /* Ancho máximo para que en pantallas gigantes no se estire demasiado */
+    max-width: 1100px;
+    /* 48px de margen arriba/abajo y centrado horizontalmente ('auto') */
+    margin: 48px auto;
+    /* 20px de margen interno a los lados para que no pegue al borde en celulares */
+    padding: 0 20px;
+}
+
+/* Subtítulo de la sección de resultados */
+.resultados h2 {
+    /* Espacio inferior antes de empezar las tarjetas */
+    margin-bottom: 24px;
+    /* Tamaño del subtítulo */
+    font-size: 1.5rem;
+}
+
+/* Contenedor de las 3 tarjetas */
+.grid-parqueaderos {
+    /* Activa CSS Grid (sistema de filas y columnas bidimensional) */
+    display: grid;
+    /* Crea columnas automáticas de mínimo 280px; si no caben en móvil, bajan solas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Deja 24px de separación tanto entre columnas como entre filas */
+    gap: 24px;
+}
+
+/* Diseño individual de cada tarjeta de parqueadero */
+.tarjeta {
+    /* Fondo blanco puro para resaltar sobre el fondo gris claro de la página */
+    background-color: #ffffff;
+    /* Borde sutil de 1px gris claro */
+    border: 1px solid #e2e8f0;
+    /* Esquinas redondeadas modernas */
+    border-radius: 12px;
+    /* 24px de espacio interior por los 4 lados */
+    padding: 24px;
+    /* Sombra suave debajo de la tarjeta para darle efecto de elevación */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Etiqueta pequeña verde que dice "Disponible" */
+.etiqueta-estado {
+    /* Permite darle padding y margin como una caja, pero sin ocupar todo el ancho */
+    display: inline-block;
+    /* Fondo verde menta suave */
+    background-color: #dcfce7;
+    /* Texto verde oscuro para buen contraste */
+    color: #166534;
+    /* Letra pequeña */
+    font-size: 0.8rem;
+    /* Letra en negrita */
+    font-weight: bold;
+    /* Relleno interno de pastilla */
+    padding: 4px 10px;
+    /* Bordes totalmente redondeados tipo píldora */
+    border-radius: 20px;
+    /* Espacio debajo de la etiqueta */
+    margin-bottom: 12px;
+}
+
+/* Título dentro de cada tarjeta */
+.tarjeta h3 {
+    /* Pequeño espacio debajo del nombre del parqueadero */
+    margin-bottom: 6px;
+}
+
+/* Texto de distancia y características */
+.ubicacion {
+    /* Color gris medio */
+    color: #64748b;
+    /* Tamaño ligeramente menor */
+    font-size: 0.9rem;
+    /* Espacio antes del precio */
+    margin-bottom: 16px;
+}
+
+/* Texto del precio ($4.500) */
+.precio {
+    /* Tamaño grande para destacar el valor */
+    font-size: 1.4rem;
+    /* Negrita */
+    font-weight: bold;
+    /* Color oscuro */
+    color: #0f172a;
+    /* Espacio antes del botón de reservar */
+    margin-bottom: 16px;
+}
+
+/* Selecciona el <span> que está dentro de .precio ("/ hora") */
+.precio span {
+    /* Tamaño más pequeño que el número del precio */
+    font-size: 0.9rem;
+    /* Grosor de letra normal (quita la negrita heredada) */
+    font-weight: normal;
+    /* Color gris suave */
+    color: #64748b;
+}
+
+/* Selecciona el botón .btn-primario únicamente cuando está dentro de .tarjeta */
+.tarjeta .btn-primario {
+    /* Hace que el botón ocupe el 100% del ancho interior de la tarjeta */
+    width: 100%;
+}
+
+/* ==========================================================================
+   6. PIE DE PÁGINA
+   ========================================================================== */
+
+/* Selecciona el bloque inferior <footer> */
+.footer {
+    /* Centra el texto */
+    text-align: center;
+    /* Relleno interior de 24px por todos los lados */
+    padding: 24px;
+    /* Mismo color oscuro de la barra superior para cerrar visualmente la página */
+    background-color: #0f172a;
+    /* Texto gris claro */
+    color: #94a3b8;
+    /* Tamaño de letra discreto */
+    font-size: 0.9rem;
+    /* Separa el pie de página 60px respecto a las tarjetas de arriba */
+    margin-top: 60px;
 }
