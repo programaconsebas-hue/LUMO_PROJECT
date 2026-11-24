@@ -1,0 +1,10 @@
+{
+  "description": "Analyze artwork step-by-step to enhance understanding and appreciation, ideal for art enthusiasts and students seeking deeper insights.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
